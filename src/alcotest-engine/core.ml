@@ -196,9 +196,9 @@ struct
       String.concat ~sep:"\n" display_lines ^ "\n"
 
   let log_dir ~via_symlink t =
-    let via_symlink =
+    let via_symlink = false
       (* We don't create symlinks on Windows. *)
-      via_symlink && not Sys.win32
+      (* via_symlink && not Sys.win32 *)
     in
     Filename.concat t.log_dir
       (if via_symlink then Suite.name t.suite else t.run_id)
